@@ -1,6 +1,6 @@
 import React from "react";
 
-const Home = () => {
+const Header = () => {
   return (
     <>
       <section className="home" id="home">
@@ -21,4 +21,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Header;

@@ -1,5 +1,5 @@
 import React from "react";
-import { menu } from "../Data";
+import { menu } from "../../Data";
 const Menu = () => {
   return (
     <>

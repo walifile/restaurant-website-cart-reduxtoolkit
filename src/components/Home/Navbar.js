@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
-import Logo from "../assets/images/logo.png";
-import { cart } from "../Data";
-
+import Logo from "../../assets/images/logo.png";
+import { cart } from "../../Data";
 const Navbar = () => {
   const navbarRef = useRef();
   const searchRef = useRef();
@@ -60,16 +59,20 @@ const Navbar = () => {
           <label htmlFor="search-box" className="fas fa-search"></label>
         </div>
         <div className="cart-items-container" ref={cartRef}>
-          {cart.map((item, index) => (
-            <div className="cart-item" key={index * Math.random()}>
-              <span className="fas fa-times"></span>
-              <img src={item.img} alt="" />
-              <div className="content">
-                <h3>cart item 01</h3>
-                <div className="price">$15.99/-</div>
+          {cart.length > 0 ? (
+            cart.map((item, index) => (
+              <div className="cart-item" key={index * Math.random()}>
+                <span className="fas fa-times"></span>
+                <img src={item.img} alt="" />
+                <div className="content">
+                  <h3>cart item 01</h3>
+                  <div className="price">$15.99/-</div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p>No Data</p>
+          )}
           <a href="#" className="btn">
             checkout now
           </a>
