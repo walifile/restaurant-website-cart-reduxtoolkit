@@ -97,6 +97,17 @@ section {
   border-bottom: 0.1rem solid #ffc107;
   padding-bottom: 0.5rem;
 }
+.header .navbar span {
+  margin: 0 1rem;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.header .navbar span:hover {
+  color: #ffc107;
+  border-bottom: 0.1rem solid #ffc107;
+  padding-bottom: 0.5rem;
+}
 
 .header .icons div {
   color: #fff;

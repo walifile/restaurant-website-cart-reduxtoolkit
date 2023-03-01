@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
 import Logo from "../../assets/images/logo.png";
 import { cart } from "../../Data";
+import { useNavigate } from "react-router";
 const Navbar = () => {
+  const navigate = useNavigate();
   const navbarRef = useRef();
   const searchRef = useRef();
   const cartRef = useRef();
@@ -36,6 +38,7 @@ const Navbar = () => {
           <a href="#review">review</a>
           <a href="#contact">contact</a>
           <a href="#blogs">blogs</a>
+          <span onClick={() => navigate("/cart")}>cart</span>
         </nav>
         <div className="icons">
           <div
