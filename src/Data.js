@@ -19,22 +19,46 @@ import blogImage2 from "./assets/images/blog-2.jpeg";
 import blogImage3 from "./assets/images/blog-3.jpeg";
 const menu = [
   {
+    id: 1,
+    title: "Tasty Grillz",
+    price: 700.0,
     img: menuImage1,
+    quantity: 1,
   },
   {
+    id: 2,
+    title: "Moveable Food",
+    price: 600.0,
     img: menuImage2,
+    quantity: 1,
   },
   {
+    id: 3,
+    title: "Cleaned & Fresh",
+    price: 500.0,
     img: menuImage3,
+    quantity: 1,
   },
   {
+    id: 4,
+    title: "Snap Kitchen",
+    price: 400.0,
     img: menuImage4,
+    quantity: 1,
   },
   {
+    id: 5,
+    title: "Sun Natural",
+    price: 4000.0,
     img: menuImage5,
+    quantity: 1,
   },
   {
-    img: menuImage6,
+    id: 6,
+    title: "Burger",
+    price: 300.0,
+    img: menuImage2,
+    quantity: 1,
   },
 ];
 

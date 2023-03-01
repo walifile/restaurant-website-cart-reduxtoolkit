@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 // import productData from "../productData";
-
+import { menu } from "../Data";
 const initialState = {
   cart: [],
-  items: [],
+  items: menu,
   totalQuantity: 0,
   totalPrice: 0,
 };
@@ -14,6 +14,8 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       let find = state.cart.findIndex((item) => item.id === action.payload.id);
+      console.log(action);
+      console.log(find);
       if (find >= 0) {
         state.cart[find].quantity += 1;
       } else {

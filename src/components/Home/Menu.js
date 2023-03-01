@@ -1,6 +1,10 @@
 import React from "react";
-import { menu } from "../../Data";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../../feature/CartSlice";
 const Menu = () => {
+  const items = useSelector((state) => state.allCart.items);
+  const dispatch = useDispatch();
+
   return (
     <>
       <section className="menu" id="menu">
@@ -9,16 +13,14 @@ const Menu = () => {
         </h1>
 
         <div className="box-container">
-          {menu.map((item, index) => (
+          {items.map((item, index) => (
             <div className="box" key={index * Math.random()}>
               <img src={item.img} alt="" />
-              <h3>tasty and healty</h3>
-              <div className="price">
-                $15.99 <span>20.99</span>
-              </div>
-              <a href="#" className="btn">
+              <h3>{item?.title}</h3>
+              <div className="price">${item.price}</div>
+              <p className="btn" onClick={() => dispatch(addToCart(item))}>
                 add to cart
-              </a>
+              </p>
             </div>
           ))}
         </div>
