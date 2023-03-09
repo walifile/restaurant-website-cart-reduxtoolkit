@@ -40,7 +40,16 @@ body {
 section {
   padding: 2rem 7%;
 }
+.flex-center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.flex-center p {
+  color: #000;
+}
 .heading {
   text-align: center;
   color: #fff;
@@ -165,7 +174,8 @@ section {
   position: absolute;
   top: 100%;
   right: -100%;
-  height: calc(100vh - 9.5rem);
+  /* height: calc(100vh - 9.5rem); */
+  height: 100vh;
   width: 35rem;
   background: #fff;
   padding: 0 1.5rem;

@@ -1,12 +1,16 @@
 import React, { useRef } from "react";
 import Logo from "../../assets/images/logo.png";
-import { cart } from "../../Data";
 import { useNavigate } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { removeItem } from "../../feature/CartSlice";
+// import { cart } from "../../Data";
 const Navbar = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const navbarRef = useRef();
   const searchRef = useRef();
   const cartRef = useRef();
+  const { cart } = useSelector((state) => state.allCart);
   const navbarHandler = () => {
     navbarRef.current.classList.toggle("active");
     searchRef.current.classList.remove("active");
@@ -64,21 +68,28 @@ const Navbar = () => {
         <div className="cart-items-container" ref={cartRef}>
           {cart.length > 0 ? (
             cart.map((item, index) => (
-              <div className="cart-item" key={index * Math.random()}>
-                <span className="fas fa-times"></span>
-                <img src={item.img} alt="" />
-                <div className="content">
-                  <h3>cart item 01</h3>
-                  <div className="price">$15.99/-</div>
+              <>
+                <div className="cart-item" key={index * Math.random()}>
+                  <span
+                    className="fas fa-times"
+                    onClick={() => dispatch(removeItem(item.id))}
+                  ></span>
+                  <img src={item.img} alt="" />
+                  <div className="content">
+                    <h3>{item.title}</h3>
+                    <div className="price">${item.price}/-</div>
+                  </div>
                 </div>
-              </div>
+                <a href="#" className="btn">
+                  checkout now
+                </a>
+              </>
             ))
           ) : (
-            <p>No Data</p>
+            <div className="flex-center">
+              <p className="heading">No Data</p>
+            </div>
           )}
-          <a href="#" className="btn">
-            checkout now
-          </a>
         </div>
       </header>
     </>
