@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import productData from "../productData";
 import { menu } from "../Data";
 const initialState = {
   cart: [],

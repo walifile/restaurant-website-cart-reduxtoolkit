@@ -632,3 +632,10 @@ section {
     font-size: 50%;
   }
 }
+
+/* cart  */
+
+.cart_table {
+  background: #fff;
+  width: 100%;
+}

@@ -141,96 +141,99 @@ const Cart = () => {
           </div>
         </section>
       </div> */}
-      <section className="h-100 gradient-custom" style={{ background: "#fff" }}>
-        <div className="container py-5">
-          <div className="row d-flex justify-content-center my-4">
-            <div className="col-md-8">
-              <div className="card mb-4">
-                <div className="card-header py-3">
-                  <h5 className="mb-0">Cart - {cart.length} items</h5>
+      <div className="cart_table">
+        {cart.length > 0 ? (
+          <table className="cart_table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart?.map((data) => (
+                <tr>
+                  <th>
+                    <img src={data.img} className="w-100" alt="Blue" />
+                  </th>
+                  <th>
+                    <strong>{data.title}</strong>
+                  </th>
+                  <th>
+                    <strong>{data.price}</strong>
+                  </th>
+                  <th>
+                    <strong>{data.quantity}</strong>
+                  </th>
+                  <th>
+                    <button
+                      type="button"
+                      className="btn btn-primary btn-sm me-1 mb-2"
+                      data-mdb-toggle="tooltip"
+                      title="Remove item"
+                      onClick={() => dispatch(removeItem(data.id))}
+                    >
+                      <i className="fas fa-trash"></i>
+                    </button>
+                  </th>
+
+                  {/* <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <div className="d-flex mb-4" style={{ maxWidth: "300px" }}>
+                  <button
+                    className="btn btn-primary px-3 me-2"
+                    onClick={() => dispatch(decreaseItemQuantity(data.id))}
+                  >
+                    <i className="fas fa-minus"></i>
+                  </button>
+
+                  <div className="form-outline">
+                    <input
+                      id="form1"
+                      min="0"
+                      name="quantity"
+                      value={data.quantity}
+                      type="number"
+                      className="form-control"
+                      onChange={() => null}
+                    />
+                    <label className="form-label" for="form1">
+                      Quantity
+                    </label>
+                  </div>
+
+                  <button
+                    className="btn btn-primary px-3 ms-2"
+                    onClick={() => dispatch(increaseItemQuantity(data.id))}
+                  >
+                    <i className="fas fa-plus"></i>
+                  </button>
                 </div>
-                <div className="card-body">
-                  {cart?.map((data) => (
-                    <div className="row">
-                      <div className="col-lg-3 col-md-12 mb-4 mb-lg-0">
-                        <div
-                          className="bg-image hover-overlay hover-zoom ripple rounded"
-                          data-mdb-ripple-color="light"
-                        >
-                          <img
-                            src={data.img}
-                            className="w-100"
-                            alt="Blue Jeans Jacket"
-                          />
-                        </div>
-                      </div>
 
-                      <div className="col-lg-5 col-md-6 mb-4 mb-lg-0">
-                        <p>
-                          <strong>{data.title}</strong>
-                        </p>
-
-                        <button
-                          type="button"
-                          className="btn btn-primary btn-sm me-1 mb-2"
-                          data-mdb-toggle="tooltip"
-                          title="Remove item"
-                          onClick={() => dispatch(removeItem(data.id))}
-                        >
-                          <i className="fas fa-trash"></i>
-                        </button>
-                      </div>
-
-                      <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                        <div
-                          className="d-flex mb-4"
-                          style={{ maxWidth: "300px" }}
-                        >
-                          <button
-                            className="btn btn-primary px-3 me-2"
-                            onClick={() =>
-                              dispatch(decreaseItemQuantity(data.id))
-                            }
-                          >
-                            <i className="fas fa-minus"></i>
-                          </button>
-
-                          <div className="form-outline">
-                            <input
-                              id="form1"
-                              min="0"
-                              name="quantity"
-                              value={data.quantity}
-                              type="number"
-                              className="form-control"
-                              onChange={() => null}
-                            />
-                            <label className="form-label" for="form1">
-                              Quantity
-                            </label>
-                          </div>
-
-                          <button
-                            className="btn btn-primary px-3 ms-2"
-                            onClick={() =>
-                              dispatch(increaseItemQuantity(data.id))
-                            }
-                          >
-                            <i className="fas fa-plus"></i>
-                          </button>
-                        </div>
-
-                        <p className="text-start text-md-center">
-                          <strong>{data.price}</strong>
-                        </p>
-                      </div>
-                      <hr className="my-4" />
-                    </div>
-                  ))}
-                </div>
-              </div>
+                <p className="text-start text-md-center">
+                  <strong>{data.price}</strong>
+                </p>
+              </div> */}
+                  <hr className="my-4" />
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <>
+            <h1>
+              No Data<span> in your Cart</span>
+            </h1>
+            <div>
+              <button className="btn">Continue Shopping</button>
             </div>
-            <div className="col-md-4">
+          </>
+        )}
+      </div>
+
+      {/* <div className="col-md-4">
               <div className="card mb-4">
                 <div className="card-header py-3">
                   <h5 className="mb-0">Summary</h5>
@@ -260,10 +263,7 @@ const Cart = () => {
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </div> */}
     </>
   );
 };
