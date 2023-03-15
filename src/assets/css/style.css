@@ -75,6 +75,7 @@ section {
 
 .btn:hover {
   letter-spacing: 0.2rem;
+  opacity: 0.6;
 }
 
 .header {
@@ -637,6 +638,7 @@ section {
 
 .cart_table {
   width: 100%;
+  padding-top: 4rem;
 }
 
 tr {
@@ -646,4 +648,29 @@ tr {
 
 table strong {
   opacity: 0.7;
+}
+
+table i {
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  border: 0.2rem solid #ffc107;
+  color: #fff;
+  margin: 0.3rem;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  margin: 0px 20px;
+}
+
+table i:hover {
+  opacity: 0.5s;
+}
+
+.shop_wrapper {
+  display: flex;
+  justify-content: end;
+  margin: 0 50px;
 }

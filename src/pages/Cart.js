@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   getCartTotal,
   removeItem,
@@ -17,6 +18,14 @@ const Cart = () => {
   return (
     <>
       <div className="cart_table">
+        <h1 className="heading">
+          Your <span>Cart</span>
+          <div className="shop_wrapper">
+            <Link to="/" className="btn">
+              Continue Shopping
+            </Link>
+          </div>
+        </h1>
         {cart.length > 0 ? (
           <table className="cart_table">
             <thead>
@@ -41,22 +50,18 @@ const Cart = () => {
                     <strong>{data.price}</strong>
                   </th>
                   <th>
-                    <button className="btn">
-                      <i className="fas fa-plus"></i>
-                    </button>
+                    <i
+                      className="fas fa-minus"
+                      onClick={() => dispatch(decreaseItemQuantity(data.id))}
+                    ></i>
                     <strong>{data.quantity}</strong>
-                    <button className="btn">
-                      <i className="fas fa-plus"></i>
-                    </button>
+                    <i
+                      className="fas fa-plus"
+                      onClick={() => dispatch(increaseItemQuantity(data.id))}
+                    ></i>
                   </th>
-                  <th>
-                    <button
-                      type="button"
-                      className="btn"
-                      onClick={() => dispatch(removeItem(data.id))}
-                    >
-                      <i className="fas fa-trash"></i>
-                    </button>
+                  <th onClick={() => dispatch(removeItem(data.id))}>
+                    <i className="fas fa-trash"></i>
                   </th>
 
                   <hr className="my-4" />
@@ -66,12 +71,9 @@ const Cart = () => {
           </table>
         ) : (
           <>
-            <h1>
+            <h1 className="heading">
               No Data<span> in your Cart</span>
             </h1>
-            <div>
-              <button className="btn">Continue Shopping</button>
-            </div>
           </>
         )}
       </div>
