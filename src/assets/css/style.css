@@ -636,6 +636,14 @@ section {
 /* cart  */
 
 .cart_table {
-  background: #fff;
   width: 100%;
+}
+
+tr {
+  color: #fff;
+  font-size: 2rem;
+}
+
+table strong {
+  opacity: 0.7;
 }
